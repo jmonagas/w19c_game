@@ -3,46 +3,26 @@ class GameBoard:
         self.winningRow = 0
         self.winningColumn = 2
         self.board = [
-            ["* ", "* ", "  ", "* ", "*"],
-            [
-                "*  ",
-                " ",
-                " ",
-                " ",
-                "*",
-                " *",
-            ],
-            [
-                "*  ",
-                " ",
-                "* ",
-                "*",
-                " ",
-                "*",
-            ],
-            [
-                "*  ",
-                " ",
-                " ",
-                " ",
-                " ",
-                " *",
-            ],
-            ["* ", "* ", "* ", "* ", "*"],
+            ["****", "* ", " ", " ", "**", "*", "*"],
+            ["** ", " ", " ", " ", " ", " ", " ", " ", "**"],
+            ["*** ", " ", "*", "*", "*", "*", "***"],
+            ["** ", " ", " ", " ", " ", " ", " ", " ", "**"],
+            ["** ", " ", " ", " ", " ", " ", " ", " ", "**"],
+            ["**", "**", "**", "**", "**", "**"],
         ]
 
     def printBoard(self, playerRow, playerColumn):
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
                 if i == playerRow and j == playerColumn:
-                    print("P", end="")
+                    print("X", end="")
                 else:
                     print(self.board[i][j], end="")
             print("")
 
     def checkMove(self, testRow, testColumn):
         if self.board[testRow][testColumn].find("*") != -1:
-            print("Sorry! You cannot move there!")
+            print("Oops! You Hit a Wall!")
             return False
         return True
 
